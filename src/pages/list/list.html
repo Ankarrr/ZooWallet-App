@@ -3,21 +3,21 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>Assets</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
+    <ion-item ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <!-- <ion-icon [name]="item.icon" item-start></ion-icon> -->
+      <ion-thumbnail item-start>
+        <img src="../../assets/imgs/ether.png">  
+      </ion-thumbnail>
+      <h2>{{item.title}}</h2>
       <div class="item-note" item-end>
-        {{item.note}}
+        {{item.amount}}
       </div>
-    </button>
+    </ion-item>
   </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
 </ion-content>
